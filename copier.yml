@@ -1,0 +1,17 @@
+project_name:
+  type: str
+  help: What is you project name?
+
+package_name:
+  type: str
+  help: Python package name (will use underscores)
+  default: "{{ project_name|replace('-', '_') }}"
+
+_exclude:
+  - copier.yml
+  - .git
+  - .pytest_cache
+  - .ruff_cache
+  - .venv
+  - uv.lock
+  - .coverage
