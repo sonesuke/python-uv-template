@@ -20,17 +20,12 @@ A modern Python project template using UV, Ruff, and best practices for Python d
 
 This is a [Copier](https://copier.readthedocs.io/) template. To create a new project:
 
-1. Install Copier:
-   ```
-   pip install copier
-   ```
-
-2. Generate a new project:
+1. Generate a new project:
    ```
    copier copy gh:sonesuke/python-uv-template path/to/your-project
    ```
 
-3. You'll be prompted for:
+2. You'll be prompted for:
    - `project_name`: Your project name (can contain hyphens)
    - `package_name`: Python package name (will use underscores by default)
 
@@ -38,25 +33,14 @@ This is a [Copier](https://copier.readthedocs.io/) template. To create a new pro
 
 Once your project is created:
 
-1. Set up a virtual environment (Python 3.13 required):
+1. Set up a virtual environment and install development dependencies:
    ```
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
-
-2. Install UV:
-   ```
-   pip install uv
+   uv sync
    ```
 
-3. Install development dependencies:
+2. Set up pre-commit:
    ```
-   uv pip install -e . --dev
-   ```
-
-4. Set up pre-commit:
-   ```
-   pre-commit install
+   uv run pre-commit install
    ```
 
 ### Development Workflow
@@ -142,10 +126,8 @@ Tests are configured using pytest:
 
 [UV](https://github.com/astral-sh/uv) is a fast, reliable Python package installer and resolver that significantly speeds up dependency management:
 
-- **Install dependencies**: `uv pip install -r requirements.txt`
-- **Add a new dependency**: `uv pip install package-name`
-- **Update dependencies**: `uv pip compile requirements.in -o requirements.txt`
-- **Create a lockfile**: `uv pip freeze > requirements.freeze.txt`
+- **Install dependencies**: `uv sync`
+- **Add a new dependency**: `uv add package-name`
 
 ## Benefits of This Template
 
